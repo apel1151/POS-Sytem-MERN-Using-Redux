@@ -1,0 +1,7 @@
+.item-button button {
+  width: 200px;
+  margin-top: 20px;
+  background-color: inherit; /* Set the background color to whatever the default state is */
+  color: inherit; /* Set the text color to whatever the default state is */
+  border-color: inherit;
+}

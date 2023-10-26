@@ -4,7 +4,10 @@
   "description": "pos mern app",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js",
+    "start": "node server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix ../client",
+    "dev": " concurrently \" npm run server \" \" npm run client \" ",
     "seed": "node seeder.js"
   },
   "author": "apel mahmud",
@@ -12,6 +15,7 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "colors": "^1.4.0",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",

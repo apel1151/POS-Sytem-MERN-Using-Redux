@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 
 
-//main routes
+//api for all items
 app.use("/api/items", require("./routes/itemRoutes"));
 
 
