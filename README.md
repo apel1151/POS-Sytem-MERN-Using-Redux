@@ -12,7 +12,7 @@ usecases:
 9. invoicing and print
 10. logout
 
-![Screenshot 2023-10-23 150852](https://github.com/apel1151/POS-system/assets/77063289/2bfddd81-87eb-4a7b-a5e0-4d1f22bbc685)
+
 ![Screenshot 2023-10-29 040455](https://github.com/apel1151/POS-system/assets/77063289/b05d736e-0034-4595-9aa8-e8027075d485)
 ![Screenshot 2023-10-29 040552](https://github.com/apel1151/POS-system/assets/77063289/f47226be-0fdc-4e2a-b885-6e7d9a1112c2)
 ![Screenshot 2023-10-29 040611](https://github.com/apel1151/POS-system/assets/77063289/7fe9092f-bf68-4216-a065-e059302d0442)
