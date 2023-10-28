@@ -22,6 +22,8 @@ app.use(morgan("dev"));
 
 //api for all items
 app.use("/api/items", require("./routes/itemRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/bills", require("./routes/billsRoute"));
 
 
 //port

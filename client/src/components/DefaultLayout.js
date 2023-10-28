@@ -12,6 +12,7 @@ import { Button, Layout, Menu, theme } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import Spinner from './Spinner';
 const { Header, Sider, Content } = Layout;
 
 
@@ -20,7 +21,7 @@ const DefaultLayout = (props) => {
   const navigate = useNavigate();
   // console.log(props);
 
-  const { cartItems } = useSelector(state => state.rootReducer);
+  const { cartItems, loading } = useSelector(state => state.rootReducer);
   const [collapsed, setCollapsed] = useState(false);
 
   // to get localStorage Data
@@ -36,6 +37,7 @@ const DefaultLayout = (props) => {
 
   return (
     <Layout>
+      {loading && <Spinner/>}
       <Sider trigger={null} collapsible collapsed={collapsed}>
             <div className='logo'>
                 <h1 className='text-center text-light font-weight-bold mt-4'>POS</h1>
@@ -58,8 +60,16 @@ const DefaultLayout = (props) => {
                     <Menu.Item key="/customers" icon={<UserOutlined/>}>
                         <Link to="/customers" className='text-decoration-none'>Customers</Link>
                     </Menu.Item>
-                    <Menu.Item key="/logout" icon={<LogoutOutlined/>}>
-                        <Link to="/logout" className='text-decoration-none'>Logout</Link>
+                    <Menu.Item 
+                      key="/logout" 
+                      icon={<LogoutOutlined/>}
+                      onClick={() => {
+                        localStorage.removeItem("auth")
+                        navigate("/login");
+                      }}
+                        
+                    >
+                        Logout
                     </Menu.Item>
 
             </Menu>

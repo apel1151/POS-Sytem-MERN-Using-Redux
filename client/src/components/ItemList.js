@@ -1,16 +1,19 @@
-import { Button, Card } from 'antd';
+import { Button, Card, message } from 'antd';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-const ItemList = ({ item }) => {
+const ItemList = ({ item }) => { 
         const dispatch = useDispatch();
         const { Meta } = Card;
          // update cart here
-        const handleAddToCart = () =>{
-             dispatch({
-                type : 'ADD_TO_CART',
-                payload: {...item, quantity: 1},
-             })
+        const handleAddToCart = () =>{   
+            dispatch({
+              type : 'ADD_TO_CART',
+              payload: {...item, quantity: 1},
+              
+           })
+           message.success("Item added to Cart");
+          
         }
     return (
         <Card
