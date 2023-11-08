@@ -9,6 +9,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import DefaultLayout from "../components/DefaultLayout";
+
 const CartPage = () => {
   const [subTotal, setSubTotal] = useState(0);
   const [billPopup, setBillPopup] = useState(false);
@@ -30,6 +31,9 @@ const CartPage = () => {
       });
     }
   };
+ 
+   
+
   const columns = [
     { title: "Name", dataIndex: "name" },
     {
@@ -47,13 +51,13 @@ const CartPage = () => {
         <div>
           <PlusCircleOutlined
             className="mx-3"
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", fontSize: "20px" }}
             onClick={() => handleIncreament(record)}
           />
           <b>{record.quantity}</b>
           <MinusCircleOutlined
             className="mx-3"
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", fontSize: "20px" }}
             onClick={() => handleDecreament(record)}
           />
         </div>
@@ -64,13 +68,16 @@ const CartPage = () => {
       dataIndex: "_id",
       render: (id, record) => (
         <DeleteOutlined
-          style={{ cursor: "pointer" }}
-          onClick={() =>
-            dispatch({
-              type: "DELETE_FROM_CART",
-              payload: record,
-            })
-          }
+          style={{ cursor: "pointer", fontSize: "20px" }}
+          onClick={() => {
+                
+                dispatch({
+                  type: "DELETE_FROM_CART",
+                  payload: record,
+                  
+                }) && message.warning("Item removed from cart!")
+                
+          }}
         />
       ),
     },
@@ -119,7 +126,7 @@ const CartPage = () => {
       </div>
       <Modal
         title="Create Invoice"
-        visible={billPopup}
+        open={billPopup}
         onCancel={() => setBillPopup(false)}
         footer={false}
       >

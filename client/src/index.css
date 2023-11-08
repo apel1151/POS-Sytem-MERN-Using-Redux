@@ -3,13 +3,12 @@
   margin-top: 20px;
   background-color: inherit; /* Set the background color to whatever the default state is */
   color: inherit; /* Set the text color to whatever the default state is */
-  border-color: inherit;
+  border-color: rgb(36, 137, 244);
 }
 
 .category-item {
-  width: 30%;
-  border: 1px solid gray;
-  height: 60px;
+  height: 45px;
+  background-color: rgb(108, 184, 251);
 }
 .category {
   margin: 10px;
@@ -17,10 +16,14 @@
   padding: 5px;
   width: 150px;
   height: 40px;
+  transition: 1.5s;
 }
 
 .category-active {
-  background-color: lightblue;
+  background: #fff;
+  opacity: 1;
+  transform: translateY(-5px);
+  color: rgb(36, 137, 244);
 }
 
 .register {

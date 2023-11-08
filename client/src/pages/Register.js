@@ -49,9 +49,9 @@ const Register = () => {
             </Form.Item>
 
             <div className="d-flex justify-content-between">
-              <p>
+              <p style={{fontSize: "15px"}}>
                 ALready Register Please
-                <Link to="/login"> Login Here !</Link>
+                <Link to="/login" style={{fontSize: "15px"}}> Login Here !</Link>
               </p>
               <Button type="primary" htmlType="submit">
                 Register

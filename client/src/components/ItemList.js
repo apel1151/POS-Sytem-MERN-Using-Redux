@@ -1,18 +1,25 @@
 import { Button, Card, message } from 'antd';
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ItemList = ({ item }) => { 
         const dispatch = useDispatch();
         const { Meta } = Card;
-         // update cart here
-        const handleAddToCart = () =>{   
-            dispatch({
-              type : 'ADD_TO_CART',
-              payload: {...item, quantity: 1},
-              
-           })
-           message.success("Item added to Cart");
+        const { cartItems } = useSelector((state) => state.rootReducer);
+        
+        // checking whether cart have duplicate item or not
+        const isItemInCart = cartItems.some((cartItem) => cartItem._id === item._id);
+        //  // update cart here 
+        const handleAddToCart = () =>{
+            if(!isItemInCart){
+              dispatch({
+                type : 'ADD_TO_CART',
+                payload: {...item, quantity: 1},
+                
+             })
+             message.success("Item added to Cart");   
+            }else{
+              message.warning("Item already added");
+            }
           
         }
     return (

@@ -5,7 +5,7 @@ const loginController = async (req, res) => {
   try {
     const { userId, password } = req.body;
     const user = await userModal.findOne({ userId, password, verified: true });
-    if (user) {
+    if (user.userId === userId && user.password === password) {
       res.status(200).send(user);
     } else {
       res.json({

@@ -78,7 +78,7 @@ const BillsPage = () => {
           width={400}
           pagination={false}
           title="Invoice Details"
-          visible={popupModal}
+          open={popupModal}
           onCancel={() => {
             setPopupModal(false);
           }}
@@ -89,8 +89,8 @@ const BillsPage = () => {
             <center id="top">
               <div className="logo" />
               <div className="info">
-                <h2>Techinfo YT POS</h2>
-                <p> Contact : 123456 | Mumbai Maharashtra</p>
+                <h2>APEL MAHMUD POS SYSTEM</h2>
+                <p> Contact : +8801734025091 | Dhaka Bangladesh</p>
               </div>
               {/*End Info*/}
             </center>
@@ -177,9 +177,9 @@ const BillsPage = () => {
               <div id="legalcopy">
                 <p className="legal">
                   <strong>Thank you for your order!</strong> 10% GST application
-                  on total amount.Please note that this is non refundable amount
+                  on total amount. Please note that this is non refundable amount
                   for any assistance please write email
-                  <b> help@mydomain.com</b>
+                  <b> apelmahmud1151@gmail.com</b>
                 </p>
               </div>
             </div>

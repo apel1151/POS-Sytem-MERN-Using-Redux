@@ -28,8 +28,8 @@ h3 {
 }
 p {
   font-size: 0.7em;
-  color: #666;
-  line-height: 1.2em;
+  color: rgb(36, 137, 244);
+  margin-top: 0px;
 }
 
 #top,
@@ -52,7 +52,7 @@ p {
   height: 60px;
   width: 60px;
   border-radius: 20%;
-  background: url(https://yt3.ggpht.com/ytc/AKedOLRB0XGxEABopk8qJ2-CcnA0UoVyC7TarDi5PJwGIQ=s176-c-k-c0x00ffffff-no-rj-mo)
+  background: url(https://dcassetcdn.com/design_img/3987175/838431/27840556/a9qgtnr1h8321t4afggmzbxpk0_thumbnail.png)
     no-repeat;
   background-size: 50px 50px;
 }

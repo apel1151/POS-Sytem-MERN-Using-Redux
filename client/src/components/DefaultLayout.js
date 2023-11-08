@@ -40,7 +40,7 @@ const DefaultLayout = (props) => {
       {loading && <Spinner/>}
       <Sider trigger={null} collapsible collapsed={collapsed}>
             <div className='logo'>
-                <h1 className='text-center text-light font-weight-bold mt-4'>POS</h1>
+                <h1 className='text-center font-weight-bold mt-4' style={{color: "rgb(50, 180, 280)"}}>POS</h1>
             </div>
             <Menu
               theme="dark"
@@ -100,7 +100,7 @@ const DefaultLayout = (props) => {
                 <div className='cart-item' style={{display: "flex", marginRight: "100px", fontSize: "30px"}}>
                   <p> {cartItems.length} </p>
                   <ShoppingCartOutlined 
-                  style={{marginLeft: "20px"}}
+                  style={{marginLeft: "20px", color: "rgb(36, 137, 244)"}}
                   onClick={() => navigate('/cart')}
                   />
                 </div>

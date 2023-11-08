@@ -11,6 +11,10 @@ const ItemPage = () => {
   const [itemsData, setItemsData] = useState([]);
   const [popupModal, setPopupModal] = useState(false);
   const [editItem, setEditItem] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [deleteRecord, setDeleteRecord] = useState([]);
+
+  
   const getAllItems = async () => {
     try {
       dispatch({
@@ -32,13 +36,16 @@ const ItemPage = () => {
   }, []);
 
   //handle deleet
-  const handleDelete = async (record) => {
+  const handleDelete = async (deleteRecord) => {
+   console.log("deleted item is", deleteRecord);
     try {
       dispatch({
         type: "SHOW_LOADING",
       });
-      await axios.post("/api/items/delete-item", { itemId: record._id });
+      
+      await axios.post("/api/items/delete-item", { itemId: deleteRecord._id });
       message.success("Item Deleted Succesfully");
+      setIsModalVisible(false);
       getAllItems();
       setPopupModal(false);
       dispatch({ type: "HIDE_LOADING" });
@@ -67,16 +74,19 @@ const ItemPage = () => {
       render: (id, record) => (
         <div>
           <EditOutlined
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", fontSize: "20px" }}
             onClick={() => {
               setEditItem(record);
               setPopupModal(true);
             }}
           />
           <DeleteOutlined
-            style={{ cursor: "pointer" }}
+            style={{ cursor: "pointer", marginLeft: "10px" , fontSize: "20px"}}
             onClick={() => {
-              handleDelete(record);
+              setIsModalVisible(true);
+              setDeleteRecord(record)
+              // console.log("record is", record)
+              
             }}
           />
         </div>
@@ -122,6 +132,7 @@ const ItemPage = () => {
     }
   };
 
+
   return (
     <DefaultLayout>
       <div className="d-flex justify-content-between">
@@ -159,9 +170,10 @@ const ItemPage = () => {
             </Form.Item>
             <Form.Item name="category" label="Category">
               <Select>
-                <Select.Option value="drinks">Drinks</Select.Option>
-                <Select.Option value="rice">Rice</Select.Option>
-                <Select.Option value="noodles">Noodels</Select.Option>
+                <Select.Option value="Drinks">Drinks</Select.Option>
+                <Select.Option value="Rice">Rice</Select.Option>
+                <Select.Option value="Noodles">Noodels</Select.Option>
+                <Select.Option  value="Soup">Soup</Select.Option>
               </Select>
             </Form.Item>
 
@@ -171,6 +183,11 @@ const ItemPage = () => {
               </Button>
             </div>
           </Form>
+        </Modal>
+      )}
+      {isModalVisible && (
+        <Modal open ={isModalVisible} onCancel={() => setIsModalVisible(false)} onOk={handleDelete(deleteRecord)}>
+          <p style={{fontSize: "20px"}}>Do you want to delete this item?</p>
         </Modal>
       )}
     </DefaultLayout>

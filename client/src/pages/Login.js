@@ -8,6 +8,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = async (value) => {
+    console.log(value);
+    
     try {
       dispatch({
         type: "SHOW_LOADING",
@@ -29,6 +31,8 @@ const Login = () => {
     if (localStorage.getItem("auth")) {
       localStorage.getItem("auth");
       navigate("/");
+    } else{
+      navigate("/login")
     }
   }, [navigate]);
   return (
@@ -46,9 +50,9 @@ const Login = () => {
             </Form.Item>
 
             <div className="d-flex justify-content-between">
-              <p>
-                not a user Please
-                <Link to="/register"> Register Here !</Link>
+              <p style={{fontSize: "15px"}}>
+                Not a user Please
+                <Link to="/register" style={{fontSize: "15px"}}> Register Here !</Link>
               </p>
               <Button type="primary" htmlType="submit">
                 Login

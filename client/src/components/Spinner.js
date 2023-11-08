@@ -1,7 +1,7 @@
 import React from 'react';
 const Spinner = () => (
 
-        <div class="spinner-border text-success" role="status"
+        <div class="spinner-border text-primary" role="status"
             style={{
                 position: "absolute",
                 left: "50%",

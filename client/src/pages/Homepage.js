@@ -10,16 +10,16 @@ const Homepage = () => {
   const categories = [
     {
       name: "Drinks",
-      imageUrl: "https://cdn-icons-png.flaticon.com/512/430/430561.png",
     },
     {
       name: "Rice",
-      imageUrl: "https://cdn-icons-png.flaticon.com/512/3174/3174880.png",
     },
     {
       name: "Noodles",
-      imageUrl: "https://cdn-icons-png.flaticon.com/512/1471/1471262.png",
     },
+    {
+      name: "Soup",
+    }
   ];
   const dispatch = useDispatch();
 
@@ -51,7 +51,7 @@ const Homepage = () => {
             }`}
             onClick={() => setSelecedCategory(category.name)}
           >
-            <h4 style={{margin: "auto"}}>{category.name}</h4>
+            <h4 style={{margin: "auto", fontSize: "15px"}}>{category.name}</h4>
            
           </div>
         ))}
