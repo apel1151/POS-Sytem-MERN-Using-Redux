@@ -52,6 +52,7 @@ const BillsPage = () => {
       title: "Actions",
       dataIndex: "_id",
       render: (id, record) => (
+
         <div>
           <EyeOutlined
             style={{ cursor: "pointer" }}
@@ -71,7 +72,7 @@ const BillsPage = () => {
         <h1>Invoice list</h1>
       </div>
 
-      <Table columns={columns} dataSource={billsData} bordered />
+      <Table columns={columns} dataSource={billsData} bordered className="custom-table" />
 
       {popupModal && (
         <Modal

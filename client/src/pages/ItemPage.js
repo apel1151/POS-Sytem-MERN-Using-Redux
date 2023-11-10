@@ -1,10 +1,17 @@
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { Button, Form, Input, Modal, Select, Table, message } from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  Modal,
+  Select,
+  Table,
+  message
+} from "antd";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import DefaultLayout from "../components/DefaultLayout";
-
 
 const ItemPage = () => {
   const dispatch = useDispatch();
@@ -14,7 +21,6 @@ const ItemPage = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [deleteRecord, setDeleteRecord] = useState([]);
 
-  
   const getAllItems = async () => {
     try {
       dispatch({
@@ -37,12 +43,12 @@ const ItemPage = () => {
 
   //handle deleet
   const handleDelete = async (deleteRecord) => {
-   console.log("deleted item is", deleteRecord);
+    console.log("deleted item is", deleteRecord);
     try {
       dispatch({
         type: "SHOW_LOADING",
       });
-      
+
       await axios.post("/api/items/delete-item", { itemId: deleteRecord._id });
       message.success("Item Deleted Succesfully");
       setIsModalVisible(false);
@@ -72,23 +78,31 @@ const ItemPage = () => {
       title: "Actions",
       dataIndex: "_id",
       render: (id, record) => (
-        <div>
-          <EditOutlined
-            style={{ cursor: "pointer", fontSize: "20px" }}
-            onClick={() => {
-              setEditItem(record);
-              setPopupModal(true);
-            }}
-          />
-          <DeleteOutlined
-            style={{ cursor: "pointer", marginLeft: "10px" , fontSize: "20px"}}
-            onClick={() => {
-              setIsModalVisible(true);
-              setDeleteRecord(record)
-              // console.log("record is", record)
-              
-            }}
-          />
+        <div className="d-flex">
+          <div className="editIcon">
+            <EditOutlined
+              style={{ cursor: "pointer", fontSize: "20px", color: "blue" }}
+              onClick={() => {
+                setEditItem(record);
+                setPopupModal(true);
+              }}
+            />
+          </div>
+          <div className="deleteIcon">
+            <DeleteOutlined
+              style={{
+                cursor: "pointer",
+                marginLeft: "10px",
+                fontSize: "20px",
+                color:"red"
+              }}
+              onClick={() => {
+                setIsModalVisible(true);
+                setDeleteRecord(record);
+                // console.log("record is", record)
+              }}
+            />
+          </div>
         </div>
       ),
     },
@@ -96,6 +110,7 @@ const ItemPage = () => {
 
   // handle form  submit
   const handleSubmit = async (value) => {
+    console.log("form values are" , value);
     if (editItem === null) {
       try {
         dispatch({
@@ -132,23 +147,27 @@ const ItemPage = () => {
     }
   };
 
-
   return (
     <DefaultLayout>
       <div className="d-flex justify-content-between">
         <h1>Item List </h1>
-        <Button type="primary" onClick={() => setPopupModal(true)}>
+        <Button type="primary" name="Add Item" onClick={() => setPopupModal(true)}>
           Add Item
         </Button>
       </div>
 
-      <Table columns={columns} dataSource={itemsData} bordered />
+      <Table
+        columns={columns}
+        dataSource={itemsData}
+        bordered
+        className="custom-table"
+      />
 
       {popupModal && (
         <Modal
           title={`${editItem !== null ? "Edit Item " : "Add New Item"}`}
-          open ={popupModal}
-          onCancel ={() => {
+          open={popupModal}
+          onCancel={() => {
             setEditItem(null);
             setPopupModal(false);
           }}
@@ -158,6 +177,7 @@ const ItemPage = () => {
             layout="vertical"
             initialValues={editItem}
             onFinish={handleSubmit}
+            encType="multipart/form-data"
           >
             <Form.Item name="name" label="Name">
               <Input />
@@ -167,13 +187,13 @@ const ItemPage = () => {
             </Form.Item>
             <Form.Item name="image" label="Image URL">
               <Input />
-            </Form.Item>
+            </Form.Item>                    
             <Form.Item name="category" label="Category">
               <Select>
                 <Select.Option value="Drinks">Drinks</Select.Option>
                 <Select.Option value="Rice">Rice</Select.Option>
                 <Select.Option value="Noodles">Noodels</Select.Option>
-                <Select.Option  value="Soup">Soup</Select.Option>
+                <Select.Option value="Soup">Soup</Select.Option>
               </Select>
             </Form.Item>
 
@@ -186,8 +206,12 @@ const ItemPage = () => {
         </Modal>
       )}
       {isModalVisible && (
-        <Modal open ={isModalVisible} onCancel={() => setIsModalVisible(false)} onOk={handleDelete(deleteRecord)}>
-          <p style={{fontSize: "20px"}}>Do you want to delete this item?</p>
+        <Modal
+          open={isModalVisible}
+          onCancel={() => setIsModalVisible(false)}
+          onOk={() => handleDelete(deleteRecord)}
+        >
+          <p style={{ fontSize: "20px" }}>Do you want to delete this item?</p>
         </Modal>
       )}
     </DefaultLayout>

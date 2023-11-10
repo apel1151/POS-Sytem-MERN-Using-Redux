@@ -31,8 +31,6 @@ const CartPage = () => {
       });
     }
   };
- 
-   
 
   const columns = [
     { title: "Name", dataIndex: "name" },
@@ -68,15 +66,12 @@ const CartPage = () => {
       dataIndex: "_id",
       render: (id, record) => (
         <DeleteOutlined
-          style={{ cursor: "pointer", fontSize: "20px" }}
+          style={{ cursor: "pointer", fontSize: "20px", color: "red" }}
           onClick={() => {
-                
-                dispatch({
-                  type: "DELETE_FROM_CART",
-                  payload: record,
-                  
-                }) && message.warning("Item removed from cart!")
-                
+            dispatch({
+              type: "DELETE_FROM_CART",
+              payload: record,
+            }) && message.warning("Item removed from cart!");
           }}
         />
       ),
@@ -114,7 +109,17 @@ const CartPage = () => {
   return (
     <DefaultLayout>
       <h1>Cart Page</h1>
-      <Table columns={columns} dataSource={cartItems} bordered />
+      <Table
+        columns={columns}
+        dataSource={cartItems}
+        bordered
+        className="custom-table"
+        pagination={{
+          pageSize: 10, // Number of items per page
+          showSizeChanger: true, // Show items per page dropdown
+          showQuickJumper: true, // Show quick jumper for navigating to specific page
+        }}
+      />
       <div className="d-flex flex-column align-items-end">
         <hr />
         <h3>

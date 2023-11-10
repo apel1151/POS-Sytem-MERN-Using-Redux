@@ -43,6 +43,7 @@ const CutomerPage = () => {
         dataSource={billsData}
         bordered
         pagination={false}
+        className="custom-table"
       />
     </DefaultLayout>
   );
