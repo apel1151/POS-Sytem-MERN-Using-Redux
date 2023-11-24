@@ -116,8 +116,6 @@ const CartPage = () => {
         className="custom-table"
         pagination={{
           pageSize: 10, // Number of items per page
-          showSizeChanger: true, // Show items per page dropdown
-          showQuickJumper: true, // Show quick jumper for navigating to specific page
         }}
       />
       <div className="d-flex flex-column align-items-end">

@@ -52,7 +52,6 @@ const BillsPage = () => {
       title: "Actions",
       dataIndex: "_id",
       render: (id, record) => (
-
         <div>
           <EyeOutlined
             style={{ cursor: "pointer" }}
@@ -72,7 +71,12 @@ const BillsPage = () => {
         <h1>Invoice list</h1>
       </div>
 
-      <Table columns={columns} dataSource={billsData} bordered className="custom-table" />
+      <Table
+        columns={columns}
+        dataSource={billsData}
+        bordered
+        className="custom-table"
+      />
 
       {popupModal && (
         <Modal
@@ -178,8 +182,8 @@ const BillsPage = () => {
               <div id="legalcopy">
                 <p className="legal">
                   <strong>Thank you for your order!</strong> 10% GST application
-                  on total amount. Please note that this is non refundable amount
-                  for any assistance please write email
+                  on total amount. Please note that this is non refundable
+                  amount for any assistance please write email
                   <b> apelmahmud1151@gmail.com</b>
                 </p>
               </div>

@@ -59,7 +59,7 @@ const DefaultLayout = (props) => {
         >
           <Menu.Item key="/" icon={<HomeOutlined />}>
             <Link to="/" className="text-decoration-none">
-              Home
+              Take Orders
             </Link>
           </Menu.Item>
           <Menu.Item key="/bills" icon={<CopyOutlined />}>
@@ -81,7 +81,7 @@ const DefaultLayout = (props) => {
             key="/logout"
             icon={<LogoutOutlined />}
             onClick={() => {
-              localStorage.removeItem("auth");
+              localStorage.removeItem("user");
               navigate("/login");
             }}
           >

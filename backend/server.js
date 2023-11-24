@@ -1,35 +1,32 @@
 const express = require("express");
-const morgan = require("morgan");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const dotenv = require("dotenv");
-require("colors");
-const connecDB = require("./config/config");
-//dotenv config
-dotenv.config();
-//database config
-connecDB();
-//express for node.js
-const app = express();
+require("dotenv").config();
+const mongoose = require("mongoose")
 
-//middlwares
-app.use(cors());
+// creating express app
+const app =  express();
+
+//middlewares for sending post request. cause it has body
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(morgan("dev"));
 
 
-//api for all items
+
+// API routes
 app.use("/api/items", require("./routes/itemRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/bills", require("./routes/billsRoute"));
 
-
-//port
-const PORT = process.env.PORT || 8080;
-
-//listen
-app.listen(PORT, () => {
-  console.log(`Server Running On Port ${PORT}`.bgCyan.white);
-});
+// MongoDB connection
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => {
+    console.log("Database connected successfully");
+    // Start the server after successfully connecting to the database
+    app.listen(process.env.PORT, () => {
+      console.log("Port is listening at-" , process.env.PORT);
+    });
+  })
+  .catch((error) => {
+    console.error("Error connecting to database:".red, error);
+  });

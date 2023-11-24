@@ -29,7 +29,7 @@ const ItemPage = () => {
       const { data } = await axios.get("/api/items/get-item");
       setItemsData(data);
       dispatch({ type: "HIDE_LOADING" });
-      console.log(data);
+      console.log("items are", data);
     } catch (error) {
       dispatch({ type: "HIDE_LOADING" });
       console.log(error);
@@ -150,7 +150,7 @@ const ItemPage = () => {
   return (
     <DefaultLayout>
       <div className="d-flex justify-content-between">
-        <h1>Item List </h1>
+        <h1>{`All items (${itemsData.length})`}</h1>
         <Button type="primary" name="Add Item" onClick={() => setPopupModal(true)}>
           Add Item
         </Button>
@@ -161,6 +161,9 @@ const ItemPage = () => {
         dataSource={itemsData}
         bordered
         className="custom-table"
+        pagination={{
+          pageSize: 10, // Number of items per page
+        }}
       />
 
       {popupModal && (

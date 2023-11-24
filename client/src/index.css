@@ -25,38 +25,140 @@
   color: #ffff;
 }
 
-.register {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-}
-
-.register input {
-  width: 400px !important;
-}
-
-.regsiter-form {
-  background-color: rgba(98, 197, 251, 0.463);
-  padding: 20px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-
-.regsiter-form h1 {
-  text-align: center;
-  background-color: rgb(2, 2, 75);
-  color: white;
-  padding: 10px;
-}
-
-.regsiter-form h3 {
-  color: rgb(4, 4, 113);
-  text-align: center;
-}
-
 .custom-table .ant-table-thead > tr > th {
   background-color: rgb(103, 180, 252) !important;
+}
+
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+
+.register-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.signup {
+  border: none;
+}
+.signup h1 {
+  color: rgb(7, 141, 194);
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.signup h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: rgb(3, 129, 180);
+  text-align: center;
+}
+
+.signup label {
+  display: block;
+  margin: 15px 0 8px;
+  color: #333;
+}
+
+.signup input {
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.signup button {
+  display: flex;
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.signup button:hover {
+  background-color: #2980b9;
+}
+
+/* Optional: Add a hover effect for labels */
+.signup label:hover {
+  color: #555;
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #f1f1f1;
+  flex-direction: column;
+}
+
+.login-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.loginn {
+  border: none;
+}
+.loginn h1 {
+  color: rgb(7, 141, 194);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.loginn h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: rgb(3, 129, 180);
+  text-align: center;
+}
+
+.loginn label {
+  display: block;
+  margin: 15px 0 8px;
+  color: #333;
+}
+
+.loginn input {
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.loginn button {
+  display: flex;
+  background-color: #3498db;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.loginn button:hover {
+  background-color: #2980b9;
+}
+
+/* Optional: Add a hover effect for labels */
+.loginn label:hover {
+  color: #555;
 }

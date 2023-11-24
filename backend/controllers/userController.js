@@ -1,36 +1,76 @@
-const userModal = require("../models/userModel");
+const User = require("../models/userModel");
+const bcrypt = require("bcrypt");
+const validator = require("validator");
+const jwt = require("jsonwebtoken");
 
-// login user
-const loginController = async (req, res) => {
+//jwt token
+const createToken = (_id) => {
+  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
+};
+
+// signup controller
+const registerController = async (req, res) => {
+  const {name, email, password } = req.body;
+  console.log('Request body:', req.body);
+  //validation email and password
+  if (!name || !email || !password) {
+    return res.status(400).json({ error: "Please give all the information" });
+  }
+  if (!validator.isEmail(email)) {
+    return res.status(400).json({ error: "Email is not valid." });
+  }
+  if (!validator.isStrongPassword(password)) {
+    return res.status(400).json({ error: "Password is not strong enough" });
+  }
+
   try {
-    const { userId, password } = req.body;
-    const user = await userModal.findOne({ userId, password, verified: true });
-    if (user.userId === userId && user.password === password) {
-      res.status(200).send(user);
+    // Wait for the promise to resolve
+    const exists = await User.findOne({ email });
+
+    if (!exists) {
+      const salt = await bcrypt.genSalt(10);
+      const hash = await bcrypt.hash(password, salt);
+
+      // Wait for the user creation to complete
+      const user = await User.create({name, email, password: hash });
+      // create a token
+      const token = createToken(user._id);
+      res.status(200).json({ email, token });
     } else {
-      res.json({
-        message: "Login Fail",
-        user,
-      });
+     return res.status(400).json({ error: "Email already in use. Please Login" });
     }
   } catch (error) {
-    console.log(error);
+    res.status(400).json({ error: error.message });
   }
 };
 
-//register
-const registerController = async (req, res) => {
+//login controller
+const loginController = async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ error: "Please provide both email and password" });
+  }
+
   try {
-    const newUser = new userModal({ ...req.body, verified: true });
-    await newUser.save();
-    res.status(201).send("new User added Successfully!");
+    const user = await User.findOne({ email });
+    //create token
+    const token = createToken(user._id)
+    if (!user) {
+      return res.status(400).json({ error: "User not found" });
+    }
+
+    const match = await bcrypt.compare(password, user.password);
+
+    if (!match) {
+      return res.status(400).json({ error: "Password doesn't match" });
+    } else {
+      return res.status(200).json({email, token});
+    }
   } catch (error) {
-    res.status(400).send("error", error);
-    console.log(error);
+    res.status(400).json({ error: error.message });
   }
 };
 
-module.exports = {
-  loginController,
-  registerController,
-};
+
+module.exports = { loginController, registerController };

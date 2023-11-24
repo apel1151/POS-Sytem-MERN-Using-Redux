@@ -42,8 +42,10 @@ const CutomerPage = () => {
         columns={columns}
         dataSource={billsData}
         bordered
-        pagination={false}
         className="custom-table"
+        pagination={{
+          pageSize: 10, // Number of items per page
+        }}
       />
     </DefaultLayout>
   );
