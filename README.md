@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 # POS-system
 
-POS mern stack project with react, redux, express, nodejs, mongodb
-usecases:
+## POS mern stack project with react, redux, express, nodejs, mongodb
+<h1>Usecases</h1>
 
 1. user login/register
 2. user authentication with jwt
@@ -21,7 +20,7 @@ usecases:
 ![Screenshot 2023-10-29 040611](https://github.com/apel1151/POS-system/assets/77063289/7fe9092f-bf68-4216-a065-e059302d0442)
 ![Screenshot 2023-10-29 040627](https://github.com/apel1151/POS-system/assets/77063289/c480b4ec-251e-4d66-b319-4858d5fa7649)
 ![Screenshot 2023-10-29 040905](https://github.com/apel1151/POS-system/assets/77063289/d4698e1f-f40f-40dd-83e2-3d26055d9036)
-=======
+
 POS mern stack project with react, redux, express, nodejs, mongodb
 
 
@@ -35,9 +34,3 @@ POS mern stack project with react, redux, express, nodejs, mongodb
 
 
 
-
-
-
-
-
->>>>>>> e5df0929ce43d4358ad104a10365b96b4eb92115
