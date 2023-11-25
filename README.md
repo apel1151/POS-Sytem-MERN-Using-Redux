@@ -15,22 +15,51 @@
 10. invoicing and print
 11. logout
 
-![Screenshot 2023-10-29 040455](https://github.com/apel1151/POS-system/assets/77063289/b05d736e-0034-4595-9aa8-e8027075d485)
-![Screenshot 2023-10-29 040552](https://github.com/apel1151/POS-system/assets/77063289/f47226be-0fdc-4e2a-b885-6e7d9a1112c2)
-![Screenshot 2023-10-29 040611](https://github.com/apel1151/POS-system/assets/77063289/7fe9092f-bf68-4216-a065-e059302d0442)
-![Screenshot 2023-10-29 040627](https://github.com/apel1151/POS-system/assets/77063289/c480b4ec-251e-4d66-b319-4858d5fa7649)
-![Screenshot 2023-10-29 040905](https://github.com/apel1151/POS-system/assets/77063289/d4698e1f-f40f-40dd-83e2-3d26055d9036)
+# Project Screenshots down below:
+## Login
+![login](https://github.com/apel1151/POS-Sytem-MERN-Using-Redux/assets/77063289/3a899f5b-e873-4178-9685-0294290fba7e)
 
-POS mern stack project with react, redux, express, nodejs, mongodb
+## Register
+![register](https://github.com/apel1151/POS-Sytem-MERN-Using-Redux/assets/77063289/22d340dc-0cb8-4c8f-8459-aaf06b81926d)
+
+## Dashboard
+![home](https://github.com/apel1151/POS-Sytem-MERN-Using-Redux/assets/77063289/1fc554ba-e34d-407f-8d36-521c03e1d0fa)
+
+## Cart Page
+![cart](https://github.com/apel1151/POS-Sytem-MERN-Using-Redux/assets/77063289/07351bee-1296-4f03-8c25-87d85525b5c7)
+
+## Items
+![items](https://github.com/apel1151/POS-Sytem-MERN-Using-Redux/assets/77063289/757dc1ef-e6f8-44be-9beb-fc574cf8009e)
+
+## Customers
+![customer](https://github.com/apel1151/POS-Sytem-MERN-Using-Redux/assets/77063289/ef6a985c-65d2-4cdd-add7-024ebb6613d9)
+
+## Bills
+![bills](https://github.com/apel1151/POS-Sytem-MERN-Using-Redux/assets/77063289/b95216a3-e13f-468c-988b-d7f6f8368f40)
+
+## Bill Generate
+![bill-generate](https://github.com/apel1151/POS-Sytem-MERN-Using-Redux/assets/77063289/3226f915-714d-4765-b499-aab09ff49a8a)
+
+## Add Item
+![add-item](https://github.com/apel1151/POS-Sytem-MERN-Using-Redux/assets/77063289/295e39b1-0c8f-4576-b0e2-7f6998ac87fd)
+
+## Edit Item
+![edit-item](https://github.com/apel1151/POS-Sytem-MERN-Using-Redux/assets/77063289/2915aae2-d781-42f7-8f47-2b58dc9d33df)
+
+## Delete Item
+![delete-item](https://github.com/apel1151/POS-Sytem-MERN-Using-Redux/assets/77063289/b6144a3e-d2a9-4511-a54d-ac5348572954)
 
 
-# Login ![login](https://github.com/apel1151/POS-system/assets/77063289/b9258d9b-ac3f-47aa-bdb8-474b83700807)
-# Home ![home](https://github.com/apel1151/POS-system/assets/77063289/63fcc6d2-6fd2-43b4-b186-3a1608b22c50)
-# Bills ![bills](https://github.com/apel1151/POS-system/assets/77063289/b9b99eec-244c-4221-8344-dd8fd640c563)
-# Items ![items](https://github.com/apel1151/POS-system/assets/77063289/fedb1d6c-4c6d-4590-a3f0-0eab1fcca317)
-# Bills-Print ![bills-print](https://github.com/apel1151/POS-system/assets/77063289/4bca9553-290f-414e-ae90-70aa4ef3741d)
-# Cart ![cart](https://github.com/apel1151/POS-system/assets/77063289/cce39414-9835-4d8a-80f6-b58db3ad07b3)
-# Invoice ![invoice](https://github.com/apel1151/POS-system/assets/77063289/6fee31be-dde8-4033-bfcd-fea1ef6e5fb5)
+
+
+
+
+
+
+
+
+
+
 
 
 
